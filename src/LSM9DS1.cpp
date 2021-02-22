@@ -70,9 +70,9 @@ int LSM9DS1Class::begin()
   }
 
   writeRegister(LSM9DS1_ADDRESS, LSM9DS1_CTRL_REG1_G, 0x98); // 238 Hz, 2000 dps, 16 Hz BW
-  writeRegister(LSM9DS1_ADDRESS, LSM9DS1_CTRL_REG6_XL, 0x90); // 238 Hz, 4G
+  writeRegister(LSM9DS1_ADDRESS, LSM9DS1_CTRL_REG6_XL, 0x90); // 238 Hz, 4G, (0x88: 16G at 238Hz)
 
-  writeRegister(LSM9DS1_ADDRESS_M, LSM9DS1_CTRL_REG1_M, 0xd8); // Temperature compensation enable, medium performance, 20 Hz
+  writeRegister(LSM9DS1_ADDRESS_M, LSM9DS1_CTRL_REG1_M, 0xdc); // Temperature compensation enabled, high-performance, 80Hz
   writeRegister(LSM9DS1_ADDRESS_M, LSM9DS1_CTRL_REG2_M, 0x00); // 4 Gauss
   writeRegister(LSM9DS1_ADDRESS_M, LSM9DS1_CTRL_REG3_M, 0x00); // Continuous conversion mode
 
@@ -118,7 +118,7 @@ int LSM9DS1Class::readAcceleration(float& x, float& y, float& z)
     return 0;
   }
 
-  x = data[0] * 4.0 / 32768.0;
+  x = data[0] * 4.0 / 32768.0; // 4.0 --> 4G
   y = data[1] * 4.0 / 32768.0;
   z = data[2] * 4.0 / 32768.0;
 
