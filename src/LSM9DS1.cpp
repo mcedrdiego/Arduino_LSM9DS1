@@ -150,7 +150,7 @@ int LSM9DS1Class::accelerationAvailable()
 
 float LSM9DS1Class::accelerationSampleRate()
 {
-  return 119.0F;
+  return 238.0F;
 }
 
 int LSM9DS1Class::readGyroscope(float& x, float& y, float& z)
@@ -183,7 +183,7 @@ int LSM9DS1Class::gyroscopeAvailable()
 
 float LSM9DS1Class::gyroscopeSampleRate()
 {
-  return 119.0F;
+  return 238.0F;
 }
 
 int LSM9DS1Class::readMagneticField(float& x, float& y, float& z)
@@ -216,7 +216,7 @@ int LSM9DS1Class::magneticFieldAvailable()
 
 float LSM9DS1Class::magneticFieldSampleRate()
 {
-  return 20.0;
+  return 80.0;
 }
 
 int LSM9DS1Class::readRegister(uint8_t slaveAddress, uint8_t address)
